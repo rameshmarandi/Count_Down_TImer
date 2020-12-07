@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CountdownTimer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+        *{
+            margin: 0;padding: 0;box-sizing: border-box;
+            font-family: 'Do Hyeon', sans-serif;
+
+        }
+        div{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction: column;
+            background-image: linear-gradient(#d63384,#05c46b,#ff3f34);
+        }
+        p{
+            height:100px;
+            width:500px;
+            /* border : 3px solid black; */
+            background: linear-gradient(to left, #743ad5, #d53a9d);
+            margin-top: 15px;
+            display: grid;
+            place-items: center;
+            font-size:45px;
+            color: white;
+            
+
+        }
+        h1{
+            color: #0fbcf9;
+            font-size: 3.5rem;
+        }
+        h2{
+            color :#1e272e;
+        }
+    </style>
+</head>
+<body>  
+    <div> 
+        
+        <h1>COUNTDOWN TIMER</h1>
+        <h2 >New Year 2022 </h2>
+        <p id="demo"></p>
+    </div>
+
+    <script>
+      //Set Your Date for Countdown
+   let des = new Date("Jan 1 , 2022 11:59:00" ).getTime();
+
+   setInterval( () =>{
+//Current date
+   let currentDate = new Date().getTime();
+
+   let diff = des - currentDate;
+
+
+   let days = Math.floor(diff  / (1000 * 60 * 60 * 24));
+   
+
+   let hours =  Math.floor((diff % ( 1000 * 24 * 60 * 60)) / (1000 * 60 * 60));
+
+   let min =  Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  
+   let sec =  Math.floor((diff % (1000 * 60)) / (1000));
+
+   document.getElementById('demo').innerHTML = `${days} Days , ${hours}h : ${min}m : ${sec}s`;
+ 
+} , 1000)      
+    </script>
+</body>
+
+</html>
